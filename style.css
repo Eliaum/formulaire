@@ -1,0 +1,197 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.custom-btn {
+    height: 50px; /* Augmente la hauteur du bouton */
+    border-radius: 10px; /* Angles légèrement arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute un effet 3D */
+    transition: all 0.3s ease; /* Transition pour l'effet au survol */
+}
+
+.custom-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Accentue l'effet 3D au survol */
+}
+
+/* Pour centrer le bouton horizontalement et lui faire occuper la largeur de sa ligne */
+.d-flex {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-md-4,
+.col-md-6,
+.col-md-8 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 auto;
+        width: 33.333333%;
+    }
+
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+
+    .col-md-8 {
+        flex: 0 0 auto;
+        width: 66.666667%;
+    }
+}
+/* Alignement des cases à cocher */
+.form-check-inline {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.label-margin-right {
+    margin-right: 10px;
+}
+
+.row-spacing td {
+    padding-bottom: 10px;
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.non-selectable-label input[type="checkbox"] {
+    display: none;
+}
+
+.non-selectable-label label {
+    cursor: default;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 3px solid #818181;
+    padding: 8px;
+    text-align: left;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.form-check-input {
+    appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.form-check-input::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.form-check-input:checked::before {
+    background-color: #007bff;
+    border-color: #000;
+}
+
+.form-check-input:checked::after {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    font-size: 10px; /* réduction de la taille de la virgule */
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* centrage de la virgule */
+}
+
+.form-check-input:focus::before {
+    border-color: #007bff;
+}
+
+.date-input {
+    margin-top: 4px;
+    height: calc(1.5em + .75rem + 2px);
+}
+
+.date-label {
+    margin-bottom: 5px; /* Ajustez cette valeur pour modifier l'espacement entre le label et les champs de date */
+}
+
+.date-input {
+    width: 100%; /* Ajustez cette valeur pour modifier la largeur des champs de date */
+}
