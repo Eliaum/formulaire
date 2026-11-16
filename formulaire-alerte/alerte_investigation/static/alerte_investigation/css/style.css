@@ -1,0 +1,18 @@
+/* Compléments à Bootstrap 5 pour le formulaire d'alerte. */
+
+#formulaire-alerte fieldset {
+    margin-bottom: 1.5rem;
+}
+
+#formulaire-alerte legend {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding-bottom: 0.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+/* Les libellés longs restent lisibles sur petit écran. */
+#formulaire-alerte .form-label {
+    font-weight: 500;
+}

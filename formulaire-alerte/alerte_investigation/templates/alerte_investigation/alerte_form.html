@@ -1,0 +1,25 @@
+{% extends "alerte_investigation/base.html" %}
+{% load static crispy_forms_tags %}
+
+{% block title %}Nouvelle alerte – {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-header bg-white">
+        <h1 class="h4 mb-1">Alerte et investigation</h1>
+        <p class="text-body-secondary small mb-0">
+            Les champs marqués d'un astérisque (*) sont obligatoires.
+        </p>
+    </div>
+    <div class="card-body">
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">{{ form.non_field_errors }}</div>
+        {% endif %}
+        {% crispy form %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'alerte_investigation/js/formulaire.js' %}" defer></script>
+{% endblock %}

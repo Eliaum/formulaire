@@ -1,0 +1,4 @@
+# Versions testées : Django 5.2.19, django-crispy-forms 2.7, crispy-bootstrap5 2026.9 (Python 3.12 et 3.13).
+Django~=5.2.19
+django-crispy-forms~=2.7
+crispy-bootstrap5>=2026.9
