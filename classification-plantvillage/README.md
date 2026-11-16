@@ -45,7 +45,7 @@ Pour l'exécuter hors de Colab, installez les dépendances avec `pip install -r 
 
 ## Vérification du code
 
-À chaque envoi de code sur GitHub, l'intégration continue exécute le notebook **de bout en bout** avec [papermill](https://papermill.readthedocs.io/), sur un petit jeu d'images synthétiques produit par [`tests/creer_donnees_test.py`](tests/creer_donnees_test.py). Les poids ImageNet sont réels ; les images sont petites (96 × 96) et l'entraînement court (2 + 2 époques).
+Le workflow d'intégration continue exécute le notebook **de bout en bout** avec [papermill](https://papermill.readthedocs.io/), sur un petit jeu d'images synthétiques produit par [`tests/creer_donnees_test.py`](tests/creer_donnees_test.py). Les poids ImageNet sont réels ; les images sont petites (96 × 96) et l'entraînement court (2 + 2 époques).
 
 Ce jeu synthétique reproduit volontairement les pièges du jeu réel :
 - doublons dans une copie imbriquée ;

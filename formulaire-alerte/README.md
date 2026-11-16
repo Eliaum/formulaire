@@ -88,7 +88,7 @@ La suite compte 23 tests :
 - **vues** : affichage, enregistrement puis redirection, données invalides sans erreur serveur, HTML bien formé ;
 - **administration**.
 
-Ils s'exécutent automatiquement dans GitHub Actions, sous Python 3.12 et 3.13 (voir [`../.github/workflows/ci.yml`](../.github/workflows/ci.yml)).
+Le workflow GitHub Actions les exécute sous Python 3.12 et 3.13 (voir [`../.github/workflows/ci.yml`](../.github/workflows/ci.yml)).
 
 ## Configuration
 

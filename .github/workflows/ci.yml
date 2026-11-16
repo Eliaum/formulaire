@@ -1,8 +1,8 @@
 name: CI
 
 on:
-  push:
-  pull_request:
+  # Lancement manuel depuis l'onglet « Actions ». Pour l'exécuter à chaque envoi de code,
+  # ajouter les déclencheurs « push: » et « pull_request: ».
   workflow_dispatch:
 
 permissions:
