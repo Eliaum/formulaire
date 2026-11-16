@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Qualité du code (ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff==0.17.5
+      - run: ruff check .
+      - run: ruff format --check .
+
+  django:
+    name: Django – tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: formulaire-alerte
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: formulaire-alerte/requirements.txt
+      - run: pip install -r requirements.txt
+      - run: python manage.py check
+      - run: python manage.py makemigrations --check --dry-run
+      - run: python manage.py test --verbosity 2
+
+  notebook:
+    name: Notebook – exécution de bout en bout (données synthétiques)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: classification-plantvillage
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: classification-plantvillage/requirements.txt
+      - run: pip install -r requirements.txt papermill ipykernel
+      - run: python tests/creer_donnees_test.py "$RUNNER_TEMP/donnees"
+      - name: Exécution du notebook (petites images, 2 + 2 époques)
+        run: >
+          papermill Modele_InceptionV3_et_MobileNetV2.ipynb "$RUNNER_TEMP/execute.ipynb"
+          -k python3
+          -p DATA_DIR "$RUNNER_TEMP/donnees" -p DATA_ZIP "" -p COPY_TO_LOCAL False
+          -p OUTPUT_DIR "$RUNNER_TEMP/resultats"
+          -y '{"IMAGE_SIZES": {"InceptionV3": 96, "MobileNetV2": 96}}'
+          -p HEAD_EPOCHS 2 -p FINE_TUNE_EPOCHS 2 -p BATCH_SIZE 8 -p MIN_IMAGES_PER_CLASS 5
+      - run: cat "$RUNNER_TEMP/resultats/comparaison_test.csv"
