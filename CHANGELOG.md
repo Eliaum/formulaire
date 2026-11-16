@@ -57,6 +57,7 @@ Refonte complète des deux projets : correction des défauts, restructuration, t
 
 - Les deux projets sont rangés chacun dans son dossier.
 - Ajout du `.gitignore`, de la configuration de ruff et de l'intégration continue GitHub Actions.
+- Ajout de la licence MIT.
 
 ## [1.1.0] – 2024-05-18
 

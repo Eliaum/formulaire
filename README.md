@@ -1,10 +1,10 @@
 # formulaire
 
-[![CI](https://github.com/Eliaum/formulaire/actions/workflows/ci.yml/badge.svg)](https://github.com/Eliaum/formulaire/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.12%20%7C%203.13-3776AB?logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-5.2%20LTS-092E20?logo=django&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-Keras%203-FF6F00?logo=tensorflow&logoColor=white)
 [![Ruff](https://img.shields.io/badge/style-ruff-D7FF64?logo=ruff&logoColor=black)](https://docs.astral.sh/ruff/)
+[![Licence MIT](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
 
 Ce dépôt réunit **deux projets indépendants**, chacun dans son dossier, avec sa documentation, ses dépendances et ses tests :
 
@@ -46,7 +46,7 @@ Puis ouvrez <http://127.0.0.1:8000/>. Les détails sont dans [formulaire-alerte/
 
 ## Qualité
 
-L'intégration continue ([GitHub Actions](.github/workflows/ci.yml)) se déclenche à chaque envoi de code et à chaque *pull request*. Elle exécute trois tâches :
+Le workflow d'intégration continue ([GitHub Actions](.github/workflows/ci.yml)) se lance depuis l'onglet *Actions* du dépôt. Il exécute trois tâches :
 
 1. **Lint et formatage** de tout le code Python, notebook compris, avec [ruff](https://docs.astral.sh/ruff/).
 2. **Projet Django**, sous Python 3.12 et 3.13 :
@@ -68,3 +68,7 @@ cd formulaire-alerte && python manage.py test
 ## Historique
 
 Les évolutions du dépôt sont décrites dans [CHANGELOG.md](CHANGELOG.md).
+
+## Licence
+
+Ce code est distribué sous licence [MIT](LICENSE).
