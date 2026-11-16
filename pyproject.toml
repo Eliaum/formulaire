@@ -1,0 +1,24 @@
+# Configuration des outils de qualité communs aux deux projets du dépôt.
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+extend-exclude = ["**/migrations/*.py"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "W",   # avertissements de style
+    "I",   # ordre des imports
+    "B",   # bugbear : erreurs fréquentes
+    "UP",  # syntaxe Python moderne
+    "DJ",  # bonnes pratiques Django
+    "S",   # sécurité (bandit)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/*.py" = ["S106"]  # mots de passe factices dans les tests
+
+[tool.ruff.lint.isort]
+known-first-party = ["alerte_investigation", "config"]
